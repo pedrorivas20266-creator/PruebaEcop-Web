@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|c:\\pedro rivas\\prueba tecnica ecop\\web\\webpruebaecop\\webpruebaecop\\pages\\pedidos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|solutionrelative:webpruebaecop\\pages\\pedidos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|c:\\pedro rivas\\prueba tecnica ecop\\web\\webpruebaecop\\webpruebaecop\\wwwroot\\js\\pedidos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|solutionrelative:webpruebaecop\\wwwroot\\js\\pedidos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|c:\\pedro rivas\\prueba tecnica ecop\\web\\webpruebaecop\\webpruebaecop\\wwwroot\\js\\productos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|solutionrelative:webpruebaecop\\wwwroot\\js\\productos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|c:\\pedro rivas\\prueba tecnica ecop\\web\\webpruebaecop\\webpruebaecop\\wwwroot\\js\\modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|solutionrelative:webpruebaecop\\wwwroot\\js\\modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|c:\\pedro rivas\\prueba tecnica ecop\\web\\webpruebaecop\\webpruebaecop\\wwwroot\\js\\clientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0E168B2F-ABE3-4C09-A7CB-E1F76CC827EE}|WebPruebaEcop\\WebPruebaEcop.csproj|solutionrelative:webpruebaecop\\wwwroot\\js\\clientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "productos.js",
+              "DocumentMoniker": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\productos.js",
+              "RelativeDocumentMoniker": "WebPruebaEcop\\wwwroot\\js\\productos.js",
+              "ToolTip": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\productos.js",
+              "RelativeToolTip": "WebPruebaEcop\\wwwroot\\js\\productos.js",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAF8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-08T15:03:30.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "pedidos.js",
+              "DocumentMoniker": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\pedidos.js",
+              "RelativeDocumentMoniker": "WebPruebaEcop\\wwwroot\\js\\pedidos.js",
+              "ToolTip": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\pedidos.js",
+              "RelativeToolTip": "WebPruebaEcop\\wwwroot\\js\\pedidos.js",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAAAKgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-08T15:03:22.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "modal.js",
+              "DocumentMoniker": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\modal.js",
+              "RelativeDocumentMoniker": "WebPruebaEcop\\wwwroot\\js\\modal.js",
+              "ToolTip": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\modal.js",
+              "RelativeToolTip": "WebPruebaEcop\\wwwroot\\js\\modal.js",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAmwFwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-08T15:03:03.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clientes.js",
+              "DocumentMoniker": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\clientes.js",
+              "RelativeDocumentMoniker": "WebPruebaEcop\\wwwroot\\js\\clientes.js",
+              "ToolTip": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\wwwroot\\js\\clientes.js",
+              "RelativeToolTip": "WebPruebaEcop\\wwwroot\\js\\clientes.js",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwCoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-08T15:02:53.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\Pages\\Pedidos\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebPruebaEcop\\Pages\\Pedidos\\Index.cshtml",
+              "ToolTip": "C:\\Pedro Rivas\\Prueba Tecnica ECOP\\WEB\\WebPruebaEcop\\WebPruebaEcop\\Pages\\Pedidos\\Index.cshtml",
+              "RelativeToolTip": "WebPruebaEcop\\Pages\\Pedidos\\Index.cshtml",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAmwGwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-08T14:48:54.52Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

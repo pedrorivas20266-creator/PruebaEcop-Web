@@ -1,0 +1,354 @@
+@page
+@model WebPruebaEcop.Pages.Pedidos.IndexModel
+@{
+    ViewData["Title"] = "Gestión de Pedidos";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Sistema ECOP</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a asp-page="/Index" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Productos/Index" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            <span>Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Clientes/Index" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-page="/Pedidos/Index" class="nav-link active">
+                            <i class="fas fa-file-invoice"></i>
+                            <span>Pedidos</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Usuario</span>
+                </div>
+                <form method="post" asp-page="/Index" asp-page-handler="Logout">
+                    <button type="submit" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-container">
+                <div class="page-header">
+                    <h1><i class="fas fa-shopping-cart"></i> Registro de Pedidos</h1>
+                    <button class="btn btn-primary" onclick="openPedidoModal()">
+                        <i class="fas fa-plus"></i> Nuevo Pedido
+                    </button>
+                </div>
+
+                <div class="search-section">
+                    <form method="get" class="search-form">
+                        <input type="text" 
+                               name="busqueda" 
+                               placeholder="Buscar pedidos..." 
+                               value="@Model.Busqueda"
+                               class="form-control search-input" />
+                        
+                        <input type="date" 
+                               name="fechaDesde" 
+                               value="@Model.FechaDesde?.ToString("yyyy-MM-dd")"
+                               class="form-control" />
+                        
+                        <input type="date" 
+                               name="fechaHasta" 
+                               value="@Model.FechaHasta?.ToString("yyyy-MM-dd")"
+                               class="form-control" />
+                        
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </form>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nro. Pedido</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Total</th>
+                                <th>IVA</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var pedido in Model.Pedidos.Items)
+                            {
+                                <tr>
+                                    <td>@pedido.NumPedido</td>
+                                    <td>@pedido.Fecha?.ToString("dd/MM/yyyy")</td>
+                                    <td>@pedido.NombreCliente @pedido.ApellidoCliente</td>
+                                    <td>@pedido.Total?.ToString("N2")</td>
+                                    <td>@pedido.Iva?.ToString("N2")</td>
+                                    <td>
+                                        <span class="badge @(pedido.Activo ? "badge-success" : "badge-danger")">
+                                            @(pedido.Activo ? "Activo" : "Anulado")
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @if (!Model.Pedidos.Items.Any())
+                    {
+                        <div class="no-data">
+                            <i class="fas fa-inbox"></i>
+                            <p>No se encontraron pedidos</p>
+                        </div>
+                    }
+                </div>
+
+                @if (Model.Pedidos.TotalPages > 1)
+                {
+                    <div class="pagination">
+                        @if (Model.Pedidos.HasPreviousPage)
+                        {
+                            <a asp-page="/Pedidos/Index" 
+                               asp-route-pageNumber="@(Model.Pedidos.PageNumber - 1)"
+                               asp-route-busqueda="@Model.Busqueda"
+                               asp-route-fechaDesde="@Model.FechaDesde"
+                               asp-route-fechaHasta="@Model.FechaHasta"
+                               class="btn btn-secondary">
+                                <i class="fas fa-chevron-left"></i> Anterior
+                            </a>
+                        }
+
+                        <span class="pagination-info">
+                            Página @Model.Pedidos.PageNumber de @Model.Pedidos.TotalPages
+                        </span>
+
+                        @if (Model.Pedidos.HasNextPage)
+                        {
+                            <a asp-page="/Pedidos/Index" 
+                               asp-route-pageNumber="@(Model.Pedidos.PageNumber + 1)"
+                               asp-route-busqueda="@Model.Busqueda"
+                               asp-route-fechaDesde="@Model.FechaDesde"
+                               asp-route-fechaHasta="@Model.FechaHasta"
+                               class="btn btn-secondary">
+                                Siguiente <i class="fas fa-chevron-right"></i>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+
+    <div id="pedidoModal" class="modal">
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h2>Nuevo Pedido</h2>
+                <button class="modal-close" onclick="closePedidoModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="pedidoForm">
+                    @Html.AntiForgeryToken()
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="text" id="fecha" class="form-control" readonly 
+                                   value="@DateTime.Now.ToString("dd/MM/yyyy")" />
+                        </div>
+                        <div class="form-group">
+                            <label>Cliente *</label>
+                            <select id="codCliente" class="form-control" required>
+                                <option value="">Seleccione un cliente...</option>
+                                @foreach (var cliente in Model.Clientes)
+                                {
+                                    <option value="@cliente.CodCliente">
+                                        @cliente.Nombres @cliente.Apellidos - @cliente.NumeroDocumento
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pedido-detalle-section">
+                        <h3>Detalle del Pedido</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group flex-2">
+                                <label>Producto</label>
+                                <select id="productoSelect" class="form-control">
+                                    <option value="">Seleccione un producto...</option>
+                                    @foreach (var producto in Model.Productos)
+                                    {
+                                        <option value="@producto.CodProducto" 
+                                                data-nombre="@producto.DesProducto"
+                                                data-precio="@producto.PrecioVenta">
+                                            @producto.DesProducto - @producto.PrecioVenta.ToString("N2")
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Cantidad</label>
+                                <input type="number" id="cantidad" class="form-control" 
+                                       min="1" step="1" value="1" />
+                            </div>
+                            <div class="form-group">
+                                <label>Precio Unit.</label>
+                                <input type="number" id="precioUnitario" class="form-control" 
+                                       min="0" step="0.01" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button type="button" class="btn btn-success" onclick="addDetalle()">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+
+                        <table class="data-table" id="detalleTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unit.</th>
+                                    <th>Subtotal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detalleTableBody">
+                            </tbody>
+                        </table>
+
+                        <div class="pedido-totales">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <strong id="subtotalPedido">0.00</strong>
+                            </div>
+                            <div class="total-row">
+                                <span>IVA (10%):</span>
+                                <strong id="ivaPedido">0.00</strong>
+                            </div>
+                            <div class="total-row total-final">
+                                <span>TOTAL:</span>
+                                <strong id="totalPedido">0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePedidoModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="savePedido()">
+                    <i class="fas fa-save"></i> Guardar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <div id="modalContainer" class="modal-container"></div>
+
+    <script src="~/js/site.js"></script>
+    <script src="~/js/toast.js"></script>
+    <script src="~/js/modal.js"></script>
+    <script src="~/js/pedidos.js"></script>
+    <div id="anularModal" class="modal">
+        <div class="modal-content modal-anular">
+
+            <div class="modal-header modal-header-danger">
+                <div class="modal-title">
+                    <i class="fas fa-ban"></i>
+                    <span>Anular Pedido</span>
+                </div>
+                <button class="modal-close" onclick="closeAnularModal()">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="anular-pedido-box">
+                    <span class="label">Pedido seleccionado</span>
+                    <strong id="anularPedidoNum"></strong>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivoAnulacion">
+                        Motivo de la anulación
+                    </label>
+
+                    <textarea id="motivoAnulacion"
+                              class="form-control textarea-motivo"
+                              rows="4"
+                              placeholder="Describa el motivo por el cual se anula el pedido..."
+                              maxlength="500"
+                              required></textarea>
+
+                    <div class="char-counter">
+                        <span id="charCount">0</span>/500 caracteres
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Esta acción es permanente y no se puede deshacer.</span>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAnularModal()">
+                    Cancelar
+                </button>
+
+                <button class="btn btn-danger btn-confirmar" onclick="confirmarAnulacion()">
+                    <i class="fas fa-ban"></i>
+                    Confirmar Anulación
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <div id="modalContainer" class="modal-container"></div>
+
+    <script src="~/js/site.js"></script>
+    <script src="~/js/toast.js"></script>
+    <script src="~/js/modal.js"></script>
+    <script src="~/js/pedidos.js"></script>
+</body>
+</html>

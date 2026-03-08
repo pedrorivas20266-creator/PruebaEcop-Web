@@ -1,0 +1,71 @@
+@page
+@model WebPruebaEcop.Pages.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Sistema de Pedidos ECOP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h1>Sistema ECOP</h1>
+                <p>Ingrese sus credenciales para continuar</p>
+            </div>
+
+            <form method="post" class="login-form">
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i>
+                        @Model.ErrorMessage
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label asp-for="LoginRequest.NombreUsuario">
+                        <i class="fas fa-user"></i> Usuario
+                    </label>
+                    <input asp-for="LoginRequest.NombreUsuario"
+                           class="form-control"
+                           placeholder="Ingrese su usuario"
+                           autocomplete="username" />
+                    <span asp-validation-for="LoginRequest.NombreUsuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LoginRequest.ClaveUsuario">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input asp-for="LoginRequest.ClaveUsuario"
+                           type="password"
+                           class="form-control"
+                           placeholder="Ingrese su contraseña"
+                           autocomplete="current-password" />
+                    <span asp-validation-for="LoginRequest.ClaveUsuario" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>&copy; @DateTime.Now.Year - Sistema ECOP</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
